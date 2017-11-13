@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>My First Object</title>
+  </head>
+  <body>
+
+    <script>
+/*
+   //This is an empty object initialized using the object literal notation
+    var mangoFruit = {
+        color:"Yellow",
+        sweetness: 8,
+        fruitName: "Mango",
+        nativeToLand: ["South America", "Central America"],
+
+        showName:function(){
+            console.log("This is" + fruitName);
+        },
+
+        nativeTo: function() {
+            this.nativeToLand.forEach(function (eachCountry) {
+                console.log("Grown in:" + eachCountry);
+            });
+        }
+    }
+
+    console.log(mangoFruit);
+    console.log(mangoFruit.nativeToLand); 
+*/
+
+//single fruit function with inherited properties 
+    function fruit (theColor, theSweetness, theFruitName, theNativeToLand){
+
+        this.color = theColor; 
+        this.sweetness = theSweetness; 
+        this.theFruitName = theFruitName;
+        this.nativeToLand = theNativeToLand; 
+
+        this.showName = function () {
+            console.log("This is a " + this.theFruitName); 
+        }
+
+        this.nativeTo = function (){  //i dont understand "This"
+            this.nativeToLand.forEach(function (eachCountry){
+                console.log("Grown in: " + eachCountry);
+            });
+        }
+    }
+
+    let mangoFruit= new fruit("Yellow", 8, "Mango", ["South America", "Central America", "West Africa" ]);
+    mangoFruit.showName(); 
+    mangoFruit.nativeTo(); //calling functions within the function
+    
+    
+    let watermelon = new fruit ("Green", 5, "Watermelon", ["Fort Worth", "Watermelon Island"]);
+    watermelon.showName();
+    watermelon.nativeTo(); 
+
+    let aMango = new fruit (); 
+    aMango.mangoSpice = "hot"; //this 
+    aMango.price = [3, 4, 5] 
+
+
+    let grapefruit = new fruit ("pink", 3, "Grapefruit", ["Texas", "Florida"]);
+    grapefruit.sourLevel = 9; //grapefruit is the object; sourLevel is the property 
+
+
+    console.log(aMango.mangoSpice); //this is accessing a property of an object. 
+    console.log(aMango.price); 
+    console.log(aMango.price.length); 
+    console.log(aMango.price[1]); //[pointing to a particular part of a string 
+    console.log((aMango.price[0]) + (aMango.price[1])); //calling a particular segment of a string 
+    console.log("This Fruit's Sour Level is: " + grapefruit.sourLevel);
+
+    aMango.printstuff = function() {
+        return "Printing"; 
+
+    }
+
+    aMango.printstuff(); 
+
+
+
+
+
+/*
+     — To invoke a method of an object, we use object.method(), for example :
+// First, lets add a method
+aMango.printStuff = function () {return “Printing”;}
+
+*/
+
+
+
+
+    </script>
+    
+  </body>
+</html>
